@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Applicants</h1>
+
+<p>>{{page}}</p>
+
+{% if number >= 10 %}
+    <p>Number is greater that 10</p>
+{% else %}
+<p>number is less than 10</p>
+    
+{% endif %}
+
+<p>prnting and typesetting industry. Lorem Ipsum has been 
+the industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley of type and scr</p>
+<ul>
+    {%for applicant in applicants %}
+    <li>Name: <a href="/applicants/{{applicant.id}}"> {{applicant.name}}</a>------jobtitle: {{applicant.jobtitle}}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+{% endblock content %}
