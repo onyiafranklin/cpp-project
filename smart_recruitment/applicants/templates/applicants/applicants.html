@@ -16,7 +16,7 @@ the industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and scr</p>
 <ul>
     {%for applicant in applicants %}
-    <li>Name: <a href="/applicants/{{applicant.id}}"> {{applicant.name}}</a>------jobtitle: {{applicant.jobtitle}}</li>
+    <li>Name: <a href="/applicants/{{applicant.id}}"> {{applicant.firstname}}</a>------jobtitle: {{applicant.profession_Title}}</li>
     {% endfor %}
 </ul>
 
