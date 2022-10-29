@@ -36,4 +36,6 @@ def applicant(request, pk):
     tags=applicantobj.tags.all()
     return render(request, 'applicants/single-applicant.html',{'applicant':applicantobj,'tags':tags})
     
-    
+def createApplicant(request):
+    context={}
+    return render(request, 'applicants/applicant_form.html', context)
