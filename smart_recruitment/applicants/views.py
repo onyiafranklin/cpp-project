@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 from .models import Applicant
+from .forms import ApplicantForm
 
 # applicantList = [
 
@@ -37,5 +38,12 @@ def applicant(request, pk):
     return render(request, 'applicants/single-applicant.html',{'applicant':applicantobj,'tags':tags})
     
 def createApplicant(request):
-    context={}
+    form= ApplicantForm()
+    
+    if request.method=="POST":
+        form= ApplicantForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('applicants')
+    context={'form' :form}
     return render(request, 'applicants/applicant_form.html', context)
