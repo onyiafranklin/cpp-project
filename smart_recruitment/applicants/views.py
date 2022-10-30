@@ -47,3 +47,16 @@ def createApplicant(request):
             return redirect('applicants')
     context={'form' :form}
     return render(request, 'applicants/applicant_form.html', context)
+    
+def updateApplicant(request,pk):
+    applicant= Applicant.objects.get(id=pk)
+    form = ApplicantForm(instance=applicant)
+     
+    if request.method =="POST":
+        form= ApplicantForm(request.POST,instance=applicant)
+        if form.is_valid():
+            form.save()
+            return redirect('applicants')
+    context={'form' :form}
+    return render(request, 'applicants/applicant_form.html', context)
+    

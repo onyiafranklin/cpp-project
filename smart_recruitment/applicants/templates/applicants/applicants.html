@@ -14,11 +14,25 @@
 <p>prnting and typesetting industry. Lorem Ipsum has been 
 the industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and scr</p>
-<ul>
+<table>
+    
+    <th>Name</th>
+    <th>Job title</th>
+    <th>email</th>
+    <th>date created</th>
     {%for applicant in applicants %}
-    <li>Name:  {{applicant.firstname}}------jobtitle: {{applicant.profession_Title}}<a href="{% url 'applicant' applicant.id %}"> View</a></li>
+    <tr>
+        <td>Name: {{applicant.firstname}}</td>
+        <td>Job title: {{applicant.profession_Title}}</td>
+        <td>email: {{applicant.email}}</td>
+        <td>date created: {{applicant.created}}</td>
+        <td><a href="{% url 'applicant' applicant.id %}">View</a></td>
+        <td><a href="{% url 'update-applicant' applicant.id %}">Edit</a></td>
+        
+        <td></td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 
 
 <!--"/applicants/{{applicant.id}}"-->
