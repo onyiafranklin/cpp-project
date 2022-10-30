@@ -59,4 +59,11 @@ def updateApplicant(request,pk):
             return redirect('applicants')
     context={'form' :form}
     return render(request, 'applicants/applicant_form.html', context)
-    
+
+def deleteApplicant(request,pk):
+    applicant= Applicant.objects.get(id=pk)
+    if request.method =="POST":
+        applicant.delete()
+        return redirect('applicants')
+    context={'object' :applicant}
+    return render(request, 'applicants/delete-template.html',context)

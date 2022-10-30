@@ -28,6 +28,7 @@ when an unknown printer took a galley of type and scr</p>
         <td>date created: {{applicant.created}}</td>
         <td><a href="{% url 'applicant' applicant.id %}">View</a></td>
         <td><a href="{% url 'update-applicant' applicant.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-applicant' applicant.id %}">Delete</a></td>
         
         <td></td>
     </tr>

@@ -7,4 +7,5 @@ urlpatterns=[
     path('applicants/<str:pk>',views.applicant, name= 'applicant'),
     path('create-applicant/',views.createApplicant, name= 'create-applicant'),
     path('update-applicant/<str:pk>/',views.updateApplicant, name= 'update-applicant'),
+    path('delete-applicant/<str:pk>/',views.deleteApplicant, name= 'delete-applicant'),
     ]
