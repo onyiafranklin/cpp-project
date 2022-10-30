@@ -4,6 +4,7 @@ import uuid
 class Applicant(models.Model):
     firstname= models.CharField(max_length=200)
     lastname= models.CharField(max_length=200)
+    profile_picture= models.ImageField(null=False, blank =False,default= "default-pp.JPG")
     email=models.EmailField(null=False, blank =False)
     address= models.TextField(null=False, blank =False, default="no address")
     profession_Title= models.CharField(max_length=200)
