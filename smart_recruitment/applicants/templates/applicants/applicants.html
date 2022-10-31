@@ -32,9 +32,9 @@
         <div class="hero-section__search">
           <form class="form" action="#" method="get">
             <div class="form__field">
-              <label for="formInput#search">Search By Job Title </label>
+              <label for="formInput#search">Search By Profession </label>
               <input class="input input--text" id="formInput#search" type="text" name="text"
-                placeholder="Search by Job Title" />
+                placeholder="Search by Profession" />
             </div>
 
             <input class="btn btn--sub btn--lg" type="submit" value="Search" />
@@ -49,25 +49,23 @@
           {%for applicant in applicants %}
           <div class="column">
             <div class="card project">
-              <a href="single-project.html" class="project">
+              <a href="{% url 'applicant' applicant.id %}" class="project">
                 <img class="project__thumbnail" src="{{applicant.profile_picture.url }}" alt="project thumbnail" />
                 <div class="card__body">
-                  <h3 class="project__title"> Job Title: {{applicant.profession_Title}}</h3>
-                  <p><a class="project__author" href="profile.html">{{applicant.firstname }} {{applicant.lastname}}</a></p>
-                  <p class="project--rating">
-                    <span style="font-weight: bold;">98%</span> Postitive
-                    Feedback (72 Votes)
-                  </p>
+                  <h3 class="project__title"> Profession: {{applicant.profession_Title}}</h3>
+                  <p><a class="project__author" href="{{applicant.profile_picture.url }}"> Name: {{applicant.firstname }} {{applicant.lastname}}</a></p>
+                  <p><a class="project__author" href="profile.html"> email: {{applicant.email}}</a></p>
+                  <p><a class="project__author" href="profile.html"> email: {{applicant.email}}</a></p>
+                 
                   <div class="project__tags">
                     <span class="tag tag--pill tag--main">
-                      <small>NextJS</small>
+                      <small>date created: {{applicant.created}}</small>
                     </span>
-                    <span class="tag tag--pill tag--main">
-                      <small>GraphQL</small>
-                    </span>
-                    <span class="tag tag--pill tag--main">
-                      <small>TypeScript</small>
-                    </span>
+                    <a href=""><span class="tag tag--pill tag--main">
+                                  <small>send mail</small>
+                                </span>
+                    </a>
+                    
                   </div>
                 </div>
               </a>

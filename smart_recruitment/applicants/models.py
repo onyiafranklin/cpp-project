@@ -8,6 +8,7 @@ class Applicant(models.Model):
     email=models.EmailField(null=False, blank =False)
     address= models.TextField(null=False, blank =False, default="no address")
     profession_Title= models.CharField(max_length=200)
+    about=models.TextField(null=False, blank =False, default= "short note about self")
     gender= (
         ('male','male'),
         ('female','female'),
