@@ -26,6 +26,7 @@ SECRET_KEY = 'gk*t9m)4yt%_p4pj$)w%ci6somjs%jfi-c#e!_46$#kv4sluno'
 DEBUG = True
 
 ALLOWED_HOSTS = ['57137587208e41658fa1ad51e3210b23.vfs.cloud9.us-east-1.amazonaws.com']
+# 57137587208e41658fa1ad51e3210b23.vfs.cloud9.us-east-1.amazonaws.com
 
 
 # Application definition
@@ -48,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'smart_recruitment.urls'
@@ -128,3 +131,4 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR), 'static'
     ]
 MEDIA_ROOT= os.path.join(BASE_DIR, 'static/images')
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')

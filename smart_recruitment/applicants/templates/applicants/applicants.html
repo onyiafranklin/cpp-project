@@ -1,19 +1,6 @@
 {% extends 'main.html' %}
 {% block content %}
-<h1>Applicants</h1>
 
-<p>>{{page}}</p>
-
-{% if number >= 10 %}
-    <p>Number is greater that 10</p>
-{% else %}
-<p>number is less than 10</p>
-    
-{% endif %}
-
-<p>prnting and typesetting industry. Lorem Ipsum has been 
-the industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley of type and scr</p>
 <table>
     
     <th>Name</th>
@@ -22,7 +9,7 @@ when an unknown printer took a galley of type and scr</p>
     <th>date created</th>
     {%for applicant in applicants %}
     <tr>
-        <td>Name: {{applicant.firstname}}</td>
+        <td>Name: {{applicant.firstname }} {{applicant.lastname}} </td>
         <td>Job title: {{applicant.profession_Title}}</td>
         <td>email: {{applicant.email}}</td>
         <td>date created: {{applicant.created}}</td>
@@ -35,7 +22,80 @@ when an unknown printer took a galley of type and scr</p>
     {% endfor %}
 </table>
 
+ <main class="projects">
+    <section class="hero-section text-center">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2>Search for <span>Applicants</span></h2>
+        </div>
 
-<!--"/applicants/{{applicant.id}}"-->
+        <div class="hero-section__search">
+          <form class="form" action="#" method="get">
+            <div class="form__field">
+              <label for="formInput#search">Search By Job Title </label>
+              <input class="input input--text" id="formInput#search" type="text" name="text"
+                placeholder="Search by Job Title" />
+            </div>
+
+            <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Search Result: DevList -->
+    <section class="projectsList">
+      <div class="container">
+        <div class="grid grid--three">
+          {%for applicant in applicants %}
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="{{applicant.profile_picture.url }}" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title"> Job Title: {{applicant.profession_Title}}</h3>
+                  <p><a class="project__author" href="profile.html">{{applicant.firstname }} {{applicant.lastname}}</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">98%</span> Postitive
+                    Feedback (72 Votes)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>NextJS</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>GraphQL</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>TypeScript</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+           {% endfor %}
+         
+
+        </div>
+      </div>
+    </section>
+
+    <div class="pagination">
+      <ul class="container">
+        <li><a href="#" class="btn btn--disabled">&#10094; Prev</a></li>
+        <li><a href="#" class="btn btn--sub">01</a></li>
+        <li><a href="#" class="btn">02</a></li>
+        <li><a href="#" class="btn">03</a></li>
+        <li><a href="#" class="btn">04</a></li>
+        <li><a href="#" class="btn">05</a></li>
+        <li><a href="#" class="btn">06</a></li>
+        <li><a href="#" class="btn">07</a></li>
+        <li><a href="#" class="btn">08</a></li>
+        <li><a href="#" class="btn">09</a></li>
+        <li><a href="#" class="btn">10</a></li>
+        <li><a href="#" class="btn">Next &#10095;</a></li>
+      </ul>
+    </div>
+  </main>
 
 {% endblock content %}

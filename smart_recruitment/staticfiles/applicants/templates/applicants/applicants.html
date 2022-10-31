@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Applicants</h1>
+
+<p>>{{page}}</p>
+
+{% if number >= 10 %}
+    <p>Number is greater that 10</p>
+{% else %}
+<p>number is less than 10</p>
+    
+{% endif %}
+
+<p>prnting and typesetting industry. Lorem Ipsum has been 
+the industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley of type and scr</p>
+<table>
+    
+    <th>Name</th>
+    <th>Job title</th>
+    <th>email</th>
+    <th>date created</th>
+    {%for applicant in applicants %}
+    <tr>
+        <td>Name: {{applicant.firstname}}</td>
+        <td>Job title: {{applicant.profession_Title}}</td>
+        <td>email: {{applicant.email}}</td>
+        <td>date created: {{applicant.created}}</td>
+        <td><a href="{% url 'applicant' applicant.id %}">View</a></td>
+        <td><a href="{% url 'update-applicant' applicant.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-applicant' applicant.id %}">Delete</a></td>
+        
+        <td></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<!--"/applicants/{{applicant.id}}"-->
+
+{% endblock content %}
