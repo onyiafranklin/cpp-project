@@ -1,4 +1,4 @@
-{% extends 'main.html' %}
+{% extends 'main_applicants.html' %}
 {% block content%}
 
  <!-- Main Section -->
@@ -12,8 +12,10 @@
               <small>{{applicant.skills}}</small>
             </span>
           </div>
+          {% if applicant.source_link %}
           <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Source Code
           </a>
+          {% endif %}
         </div>
         <div class="column column--2of3">
           <img class="singleProject__preview" src="{{applicant.profile_picture.url}}" alt="portfolio thumbnail" />

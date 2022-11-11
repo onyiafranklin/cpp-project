@@ -20,7 +20,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('applicants.urls'), name='applicants'),
+    path('applicants/', include('applicants.urls'), name='applicants'),
+    path('employers/', include('employers.urls'), name='employers'),
+    path('', include('mainpage.urls'), name='mainpage'),
 ]
 urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 urlpatterns+= static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

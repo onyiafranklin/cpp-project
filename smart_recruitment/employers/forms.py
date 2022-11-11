@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Applicant
+from .models import Employer
 from django import forms
 
 class ApplicantForm(ModelForm):

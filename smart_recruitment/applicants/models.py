@@ -1,7 +1,10 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
 
 class Applicant(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, null=True, blank=True)
     firstname= models.CharField(max_length=200)
     lastname= models.CharField(max_length=200)
     profile_picture= models.ImageField(null=False, blank =False,default= "default-pp.JPG")
